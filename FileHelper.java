@@ -7,8 +7,9 @@ import java.io.FileWriter;
 
 public class FileHelper {
     // Parameter is the full file path of where the file is on your computer
-    public static void readFromFile(String sFilePath) {
+    public static String readFromFile(String sFilePath) {
         try {
+            String = str;
             File i_file = new File(sFilePath);
             Scanner i_scanner = new Scanner(i_file);
             while (i_scanner.hasNextLine()) {
@@ -17,13 +18,15 @@ public class FileHelper {
             }
             i_scanner.close();
             System.out.println("Your file has been read.");
+            return str;
         } catch (FileNotFoundException e) {
             System.out.println("There was an error with your file:");
             e.printStackTrace();
         }
     }
 
-    // Parameter output path is the full file path of where you want the file to be on your computer
+    // Parameter output path is the full file path of where you want the file to be
+    // on your computer
     // Parameter text is the text you want in the output files contents
     public static void writeToFile(String sOutputPath, String sText) {
         try {
@@ -35,5 +38,9 @@ public class FileHelper {
             System.out.println("There was an error with your file:");
             e.printStackTrace();
         }
+    }
+
+    public static int countCharacters(String fileName) {
+        return readFromFile(fileName).length();
     }
 }
